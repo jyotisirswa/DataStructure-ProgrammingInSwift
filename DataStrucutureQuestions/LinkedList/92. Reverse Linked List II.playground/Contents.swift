@@ -2,7 +2,6 @@ import UIKit
 
 var greeting = "Hello, playground"
 
-
 // Definition for singly-linked list.
 public class ListNode {
     public var val: Int
