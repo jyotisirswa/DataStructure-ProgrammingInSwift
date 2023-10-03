@@ -144,9 +144,7 @@ public struct LinkedList<Value> {
         }
         return node.next?.value
         
-    }
-    
-    
+    }  
 }
 
 extension LinkedList : CustomStringConvertible {
