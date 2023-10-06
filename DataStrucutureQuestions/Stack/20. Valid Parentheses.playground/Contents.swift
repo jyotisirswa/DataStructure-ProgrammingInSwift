@@ -26,3 +26,5 @@ func isValid(_ s: String) -> Bool {
 let parantheses = "()[]{}"
 let isValidObj = isValid(parantheses)
 print("parantheses are valid = \(isValidObj)")
+
+
