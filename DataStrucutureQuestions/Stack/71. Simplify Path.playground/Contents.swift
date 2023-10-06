@@ -26,3 +26,5 @@ print(simplifyPath(path))
 print(simplifyPath(path2))
 print(simplifyPath("/home//foo/"))
 
+
+
