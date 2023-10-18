@@ -1,5 +1,9 @@
 import UIKit
 
+//Problem:-  https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+
+//Leetcode Solution : https://leetcode.com/problems/remove-nth-node-from-end-of-list/solutions/4180205/19-remove-nth-node-from-end-of-list-time-complexity-is-o-n-space-complexity-o-1/
+
 
 public class ListNode {
     public var val : Int?
@@ -27,8 +31,7 @@ extension ListNode : CustomStringConvertible {
 }
 
 func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
-    var dummyNode = ListNode(0, head)
-    var left = dummyNode
+    var left = head
     var right = head
     var index = n
     // advance right to nth position
@@ -36,16 +39,18 @@ func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
         right = right?.next
         index -= 1
     }
+    if right == nil {
+        return head?.next
+    }
     /* then advance both right and left now they are nth postions apart
-    # when right gets to nil, left will be just before the item to be deleted */
-    while right != nil {
+     # when right gets to nil, left will be just before the item to be deleted */
+    while right?.next != nil {
         right = right?.next
-        left = left.next!
+        left = left?.next
     }
     // delete the node
-    left.next = left.next?.next
-
-    return dummyNode.next
+    left?.next = left?.next?.next
+    return head
 }
 
 let ll = ListNode(1, ListNode(1, ListNode(2, ListNode(3, ListNode(6, ListNode(4, ListNode(5, nil)))))))
