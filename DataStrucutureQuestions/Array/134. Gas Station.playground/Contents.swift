@@ -17,6 +17,5 @@ func canCompleteCircuit(_ gas: [Int], _ cost: [Int]) -> Int {
      }
      return result
 }
-
 print("starting gas station's index is :- \(canCompleteCircuit([1,2,3,4,5], [3,4,5,1,2]))")
 print("starting gas station's index is :- \(canCompleteCircuit([2,3,4], [3,4,3]))")
