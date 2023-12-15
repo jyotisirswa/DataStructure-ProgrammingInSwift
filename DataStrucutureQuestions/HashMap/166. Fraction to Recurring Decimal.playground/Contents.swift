@@ -2,8 +2,6 @@ import UIKit
 
 //https://leetcode.com/problems/fraction-to-recurring-decimal/
 
-
-
 func fractionToDecimal(_ numerator: Int, _ denominator: Int) -> String {
     var result = ""
     var remainderMap : [Int : Int] = [:]
