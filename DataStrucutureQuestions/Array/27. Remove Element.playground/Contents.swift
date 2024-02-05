@@ -18,6 +18,21 @@ func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
     }
     return nums.count
 }
-var nums = [3,2,2,3]
-print(removeElement(&nums, 3))
+
+func removeElementApproachTwo(_ nums: inout [Int], _ val: Int) -> Int {
+    guard nums.count > 0 else {
+        return 0
+    }
+    var compareIndex = 0
+    for index in 0..<nums.count {
+        if nums[index] != val {
+            nums[compareIndex] = nums[index]
+            compareIndex += 1
+        }
+    }
+    return compareIndex
+}
+
+var nums = [1, 2, 2, 3, 4] //[0,1,2,2,3,0,4,2] //[3,2,2,3]
+print(removeElementApproachTwo(&nums, 2))
 print(nums)

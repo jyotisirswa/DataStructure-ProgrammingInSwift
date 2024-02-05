@@ -15,6 +15,21 @@ func lengthOfLongestSubstring(_ s: String) -> Int {
     return len
 }
 
+func lengthOfLongestSubstringApproachTwo(_ s: String) -> Int {
+    var ans = 0
+    var hashMap: [Character: Int] = [:]
+    var pointer = 0
+    
+    for (index, char) in s.enumerated() {
+        if let prevIndex = hashMap[char] {
+            pointer = max(prevIndex, pointer)
+        }
+        ans = max(ans, index - pointer + 1)
+        hashMap[char] = index + 1
+    }
+    return ans
+}
+
 func lengthOfLongestSubstringMethodTwo(_ s: String) -> Int {
     if s.count == 0 {
         return 0
@@ -40,7 +55,6 @@ func lengthOfLongestSubstringMethodTwo(_ s: String) -> Int {
     }
     return longest
 }
-
 
 
 print(lengthOfLongestSubstringMethodTwo("abcabcbb"))

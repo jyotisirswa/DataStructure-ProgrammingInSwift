@@ -8,6 +8,7 @@ import UIKit
 func evalRPN(_ tokens: [String]) -> Int {
      var stack = [Int]()
      for tokenObj in tokens {
+         print(stack)
          if let number = Int(tokenObj) {
              stack.append(number)
              continue
@@ -36,7 +37,7 @@ func evalRPN(_ tokens: [String]) -> Int {
 
 var tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
 let validRPNResult = evalRPN(tokens)
-print("RPN result is = \(tokens)")
+print("RPN result is = \(validRPNResult)")
 
 
 

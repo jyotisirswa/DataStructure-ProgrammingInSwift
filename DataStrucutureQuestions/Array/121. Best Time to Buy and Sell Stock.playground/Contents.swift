@@ -4,6 +4,7 @@ import UIKit
 //Time Complexity :- O(n), space complexity is O(1)
 public func maxProfit(_ prices: [Int]) -> Int {
     var minPrice = Int.max
+    print(minPrice)
     var maxProfit = 0
     for price in prices {
         minPrice = min(price, minPrice)

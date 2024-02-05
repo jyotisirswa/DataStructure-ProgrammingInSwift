@@ -7,8 +7,11 @@ func longestCommonPrefix(_ strs: [String]) -> String {
     if strs.count == 1 { return strs.last! }
     let sortedArray = strs.sorted()
     var output = ""
-    for (char1, char2) in zip(sortedArray.first!, sortedArray.last!) {
-        char1
+    print(sortedArray)
+    for (char1, char2) in zip(strs.first!, strs.last!) {
+        print(zip(sortedArray.first!, sortedArray.last!))
+        print(char1)
+        print(char2)
         if char1 == char2 {
             output += String(char1)
         } else {
@@ -18,4 +21,23 @@ func longestCommonPrefix(_ strs: [String]) -> String {
     return output
 }
 
-print("Longest common prefix of [flower, flow, flight] is :- \(longestCommonPrefix(["flower","flow","flight"]))")
+
+func longestCommonPrefixMethodTwo(_ strs: [String]) -> String {
+    if strs.isEmpty { return "" }
+    var prefix = strs[0]
+    for index in 1..<strs.count {
+        while !strs[index].hasPrefix(prefix) {
+            prefix = String(prefix.dropLast())
+            if prefix.isEmpty {
+                return ""
+            }
+            print("prefix = \(prefix) for comparing with \(strs[index])")
+        }
+    }
+    
+    
+    return prefix
+}
+
+print("Longest common prefix of [flower, flow, flight] is :- \(longestCommonPrefixMethodTwo(["flower","flow","flight"]))")
+print("Longest common prefix of is :- \(longestCommonPrefixMethodTwo(["dog","racecar","car"]))")
