@@ -35,10 +35,9 @@ func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
     var right = head
     var index = n
     // advance right to nth position
-    while index > 0 {
-        right = right?.next
-        index -= 1
-    }
+    for _ in 0..<n {
+               right = right?.next
+           }
     if right == nil {
         return head?.next
     }

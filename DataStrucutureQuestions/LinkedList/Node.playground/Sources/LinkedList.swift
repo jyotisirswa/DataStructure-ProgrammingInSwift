@@ -54,7 +54,6 @@ public struct LinkedList<Value> {
     
     //POP
     @discardableResult
-    
     public mutating func pop() -> Value? {
         defer {
             head = head?.next

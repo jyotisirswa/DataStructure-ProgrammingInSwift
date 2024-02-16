@@ -1,5 +1,8 @@
 import UIKit
 
+//https://leetcode.com/problems/3sum/
+//Time Complexity: O(n^2)\. twoSumII is O(n), and we call it n times.
+//Space Complexity = O(n)
 func threeSum(_ nums: [Int]) -> [[Int]] {
     if nums.count < 3 {
         return []
@@ -24,4 +27,5 @@ func threeSum(_ nums: [Int]) -> [[Int]] {
     }
     return Array(result)
 }
-print("all triplets combination of array [-1,0,1,2,-1,-4] is:  \(threeSum([-1,0,1,2,-1,-4]))")
+//print("all triplets combination of array [-1,0,1,2,-1,-4] is:  \(threeSum([-1,0,1,2,-1,-4]))")
+print("all triplets combination of array [-1,0,1,2,-1,-4] is:  \(threeSumApproachTwo([-1,0,1,2,-1,-4]))")

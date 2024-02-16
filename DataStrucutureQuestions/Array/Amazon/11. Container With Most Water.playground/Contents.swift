@@ -1,5 +1,8 @@
 import UIKit
 
+//https://leetcode.com/problems/container-with-most-water/description/
+//Time complexity: O(n). Single pass.
+//Space complexity: O(1). Constant space is used.
 func maxArea(_ height: [Int]) -> Int {
     var left = 0, right = height.count - 1, maxLeft = height[left], maxRight = height[right], waterFilled = 0, maxDifference = 0
     while left < right {

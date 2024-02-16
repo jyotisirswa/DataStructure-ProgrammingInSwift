@@ -1,6 +1,7 @@
 import UIKit
 
 //https://leetcode.com/problems/binary-search/description/
+//O(nlogn)
 
 public extension RandomAccessCollection where Element : Comparable {
     
@@ -62,3 +63,23 @@ let arrayTwo = [1, 5, 15, 17, 19, 22, 24, 31, 105, 150]
 print("index(of:): 31 in \(arrayTwo) is \(String(describing: array.firstIndex(of: 31)))")
 print("binarySearch(for:): 31 in \(arrayTwo) is \(String(describing: array.binarySearch(for: 31)))")
 print("binarySearch(for:) 31 in \(arrayTwo) is in second method is : \(String(describing: search(arrayTwo, 31)))")
+
+
+func binarySearch(array : [Int], targetValue : Int, range : Range<Int>?) -> Int? {
+    let rangeObj = range ?? 0..<array.count
+    
+    guard rangeObj.lowerBound < rangeObj.upperBound else {
+        return -1
+    }
+    let size = rangeObj.distance(from: rangeObj.lowerBound, to: rangeObj.upperBound)
+    let middleIndex = array.index(rangeObj.lowerBound, offsetBy: size/2)
+    
+    if array[middleIndex] == targetValue {
+        return middleIndex
+    }
+    else if array[middleIndex] > targetValue {
+        return binarySearch(array: array, targetValue: targetValue, range: rangeObj.lowerBound..<middleIndex)
+    } else {
+        return binarySearch(array: array, targetValue: targetValue, range: middleIndex..<rangeObj.upperBound)
+    }
+}

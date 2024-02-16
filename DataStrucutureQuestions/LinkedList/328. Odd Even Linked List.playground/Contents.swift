@@ -1,5 +1,3 @@
-import UIKit
-
 //TIME COMPLEXITY : O(N) SPACE COMPLEXITY : O(1)
 
 public class ListNode {
@@ -46,7 +44,22 @@ func oddEvenList(_ head: ListNode?) -> ListNode? {
     return head
 }
 
+func oddEvenListApproachTwo(_ head: ListNode?) -> ListNode? {
+    var oddList = head
+    var evenList = head?.next
+    var evenHead = evenList
+    while evenList != nil || evenList?.next != nil {
+        oddList?.next = oddList?.next?.next
+        oddList = oddList?.next
+        
+        evenList?.next = evenList?.next?.next
+        evenList = evenList?.next
+    }
+    oddList?.next = evenHead
+    return head
+}
+
 let ll = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5, ListNode(6, ListNode(7, nil)))))))
-oddEvenList(ll)
-print(ll)
+//oddEvenList(ll)
+print("Reversed list = \(oddEvenListApproachTwo(ll))")
 
