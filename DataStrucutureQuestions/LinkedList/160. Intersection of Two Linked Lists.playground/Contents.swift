@@ -3,7 +3,7 @@ import UIKit
 //Maintain two pointers pointer 1 and pointer 2 initialized at the head of A and B, respectively. Then let them both traverse through the lists, one node at a time.
 //When pointer 1 reaches the end of a list, then redirect it to the head of B (yes, B, that's right.); similarly when pointer 2 reaches the end of a list, redirect it the head of A.
 //If at any point pointer 1 meets pointer 2, then pointer 1/pointer 2 is the intersection node.
-// https://leetcode.com/problems/intersection-of-two-linked-lists/solution/
+//https://leetcode.com/problems/intersection-of-two-linked-lists/solution/
 //Time complexity : O(m+n).
 //Spointer 1ce: O(1)
 

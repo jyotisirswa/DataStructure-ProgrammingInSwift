@@ -51,7 +51,6 @@ extension BinaryNode {
     }
 }
 
-
 extension BinaryNode : CustomStringConvertible {
     public var description : String {
        return diagram(for: self)
@@ -73,7 +72,6 @@ extension BinaryNode : CustomStringConvertible {
                   bottom + "│ ", bottom + "└──", bottom + " ")
     }
 }
-
 /*
  A binary search tree, or BST, is a data structure that facilitates fast lookup, addition
  and removal operations. Each operation has an average time complexity of O(log n),

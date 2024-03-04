@@ -1,4 +1,3 @@
-import UIKit
 
 //https://leetcode.com/problems/product-of-array-except-self/description/?envType=study-plan-v2&envId=top-interview-150
 //APPROACH 1 :- Complexity This approach has a time complexity of O(n)O(n)O(n) and a space complexity of O(n)O(n)O(n), where nnn is the length of the input array nums.
@@ -20,7 +19,8 @@ func productExceptSelf(_ nums: [Int]) -> [Int] {
     return result
 }
 print("Product of array elements except self using first approach is :- \(productExceptSelf([1,2,3,4]))")
-//APPROACH 2 :- Complexity This approach also has a time complexity of O(n)O(n)O(n) and a space complexity of O(1)O(1)O(1), where nnn is the length of the input array nums. (The output array does not count as extra space for space complexiy analysis)
+//APPROACH 2 :- Complexity This approach also has a time complexity of O(n) and a space complexity of O(1), where nnn is the length of the input array nums. (The output array does not count as extra space for space complexiy analysis)
+//First find left product & then right product
 func productExceptSelfTwo(_ nums: [Int]) -> [Int] {
     var result = Array(repeating: 1, count: nums.count)
     
@@ -28,10 +28,11 @@ func productExceptSelfTwo(_ nums: [Int]) -> [Int] {
         result[i] = result[i - 1] * nums[i - 1]
     }
     
-    var suffix = 1
+    var rightProduct = 1 // as there r no elements in the right so we assume rightProduct is 1 for last Element
+    print("result = \(result)")
     for i in (0 ..< nums.count).reversed() {
-        result[i] *= suffix
-        suffix *= nums[i]
+        result[i] *= rightProduct
+        rightProduct *= nums[i]
     }
     
     return result

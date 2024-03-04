@@ -16,11 +16,13 @@ func removeDuplicates(_ nums: inout [Int]) -> Int {
         i += 1
         nums[i] = nums[j]
     }
+//    let count = nums.count
+//    nums.removeSubrange(i+1..<count)
     return i + 1
 }
 
 
 
-var num1 = [1,1,1,2,2,3] // [0,0,1,1,1,2,2,3,3,4]
+var num1 = [1,1,1,2,2,3,3,4,4,5,5,5] // [0,0,1,1,1,2,2,3,3,4]
 print("Number of unique elements in array is \(removeDuplicates(&num1))")
 print(num1)

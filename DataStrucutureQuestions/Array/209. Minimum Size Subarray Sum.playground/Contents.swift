@@ -18,3 +18,4 @@ func minSubArrayLen(_ target: Int, _ nums: [Int]) -> Int {
 }
 
 print("minimum window subarray of target 7 is \(minSubArrayLen(7, [2,3,1,2,4,3]))" )
+print("minimum window subarray of target 11 is \(minSubArrayLen(11, [1,1,1,1,1,1,1,1]))" )

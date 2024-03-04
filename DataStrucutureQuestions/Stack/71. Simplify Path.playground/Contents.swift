@@ -5,10 +5,10 @@ import UIKit
 //   - space: O(n), where n is the length of path.
 func simplifyPath(_ path: String) -> String {
     let paths = path.split(separator: "/")
+    print(paths)
     var stack = [String]()
     for path in paths {
         guard path != ".", !path.isEmpty else { continue }
-        
         if path == ".." {
             if !stack.isEmpty {
                 stack.removeLast()
@@ -22,8 +22,8 @@ func simplifyPath(_ path: String) -> String {
 
 let path  = "/home/"
 let path2 = "/../"
-print(simplifyPath(path))
-print(simplifyPath(path2))
+//print(simplifyPath(path))
+//print(simplifyPath(path2))
 print(simplifyPath("/home//foo/"))
 
 
