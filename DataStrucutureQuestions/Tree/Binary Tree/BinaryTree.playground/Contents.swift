@@ -1,4 +1,3 @@
-import UIKit
 
 //generic node to be used with binary search trees (BST’s)
 class BinaryNode<Element>{
@@ -17,8 +16,10 @@ class BinaryNode<Element>{
         var lefth = height(of: node.leftChild)
         var righth = height(of: node.rightChild)
         if (lefth > righth) {
+            print("left = \(lefth)")
             return lefth + 1;
         } else {
+            print("righth = \(righth)")
             return righth + 1;
         }
        // return 1 + max(height(of: node.leftChild), height(of: node.rightChild))
@@ -82,7 +83,6 @@ var treeObj : BinaryNode<Int> = {
 }()
 
 print(treeObj)
-
 var testTRaversal : [Int] = []
 treeObj.traverseInOrder{
     testTRaversal.append($0)
@@ -99,3 +99,43 @@ treeObj.traversePostOrder{
 }
 print("Tree traverse Post Order= \(testTRaversal)")
 print(treeObj.height(of: treeObj))
+
+extension BinaryNode {
+    public func traversePreOrder(visit: (Element?) -> Void) {
+        visit(value)
+        if let leftChild = leftChild {
+            leftChild.traversePreOrder(visit: visit)
+        } else {
+            visit(nil)
+        }
+        if let rightChild = rightChild {
+            rightChild.traversePreOrder(visit: visit)
+        } else {
+            visit(nil)
+        }
+    }
+}
+func serialize<T>(_ node: BinaryNode<T>) -> [T?] {
+    var array: [T?] = []
+    node.traversePreOrder { array.append($0) }
+    return array
+}
+func deserialize<T>(_ array: [T?]) -> BinaryNode<T>? {
+    var reversed = Array(array.reversed())
+    return deserialize(&reversed)
+}
+func deserialize<T>(_ array: inout [T?]) -> BinaryNode<T>? {
+    guard let value = array.removeLast() else {
+        return nil
+    }
+    let node = BinaryNode(value: value)
+    node.leftChild = deserialize(&array)
+    node.rightChild = deserialize(&array)
+    return node
+}
+
+let array = serialize(treeObj)
+let arrayUpdated = array.compactMap{$0}
+print(arrayUpdated)
+let node = deserialize(array)
+print(node)

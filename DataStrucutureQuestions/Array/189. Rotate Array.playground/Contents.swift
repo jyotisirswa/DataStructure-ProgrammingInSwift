@@ -2,6 +2,13 @@ import UIKit
 
 //https://leetcode.com/problems/rotate-array/description/
 
+/*
+Original List                   : 1 2 3 4 5 6 7
+After reversing all numbers     : 7 6 5 4 3 2 1
+After reversing first k numbers : 5 6 7 4 3 2 1
+After revering last n-k numbers : 5 6 7 1 2 3 4 --> Result
+*/
+
 func rotateArray(_ nums: inout [Int], _ k: Int) {
     var rotationLimit = k % nums.count
     print(rotationLimit)
@@ -10,7 +17,6 @@ func rotateArray(_ nums: inout [Int], _ k: Int) {
         nums.append(element)
     }
 }
-
 func rotateArrayApproachTwo(_ nums: inout [Int], _ k: Int) {
     var rotationLimit = k % nums.count
     if rotationLimit > 0 {
@@ -29,7 +35,6 @@ func reverseArray(_ nums : inout [Int], _ leftPointer : Int, _ rightPointer : In
         right -= 1
     }
 }
-
 var nums = [-1,-100,3,99] // [1,2,3,4,5,6,7]
 rotateArrayApproachTwo(&nums, 2)  //[3,99,-1,-100]
 print(nums)

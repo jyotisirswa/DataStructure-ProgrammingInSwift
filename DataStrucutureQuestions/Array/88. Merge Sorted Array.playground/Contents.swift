@@ -5,6 +5,25 @@ import UIKit
    //   - time: O(m + n), where m is the number of elements in nums1, and n is the number of elements in nums2.
    //   - space: O(1), only constant space is used.
 
+
+func mergeApproachOne(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
+    var p1 = m - 1
+    var p2 = n - 1
+    var insertIndex = m + n + 1
+    for insertIndex in stride(from: m + n - 1, through: 0, by: -1) {
+        if p2 < 0 {
+            break
+        }
+        if p1 >= 0, nums1[p1] > nums2[p2] {
+            nums1[insertIndex] = nums1[p1]
+            p1 -= 1
+        } else  {
+            nums1[insertIndex] = nums2[p2]
+            p2 -= 1
+        }
+    }
+}
+
 func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
     var m = m - 1
     var n = n - 1

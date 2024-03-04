@@ -5,7 +5,7 @@ var greeting = "Hello, playground"
 //a Stack with an array property.
 struct Stack<Element> {
     fileprivate var array : [Element] = []
-    
+
     //stack is empty or not
     var isEmpty: Bool {
       return array.isEmpty
@@ -16,11 +16,11 @@ struct Stack<Element> {
       return array.count
     }
     
-//    Pushing an object onto the stack is relatively straightforward. Add the following method inside the stack:
+   //Pushing an object onto the stack is relatively straightforward. Add the following method inside the stack:
     mutating func push(_ element : Element) {
         array.append(element)
     }
-//    The pop method returns an optional String. The return type is optional to handle the case where the stack is empty in the first place. If we try to pop an empty stack, then we get a nil.
+   //The pop method returns an optional String. The return type is optional to handle the case where the stack is empty in the first place. If we try to pop an empty stack, then we get a nil.
     @discardableResult
     mutating func pop() -> Element? {
         return array.popLast()
@@ -33,7 +33,6 @@ struct Stack<Element> {
 }
 
 extension Stack : CustomStringConvertible {
-    
     var description: String {
         let topDivider = "---Stack---\n"
         let bottomDivider = "\n-----------\n"
@@ -44,11 +43,9 @@ extension Stack : CustomStringConvertible {
 
 // 1
 var rwBookStack = Stack<String>()
-
 // 2
 rwBookStack.push("3D Games by Tutorials")
 rwBookStack.push("4D Games by Tutorials")
-
 print(rwBookStack)
 // 3
 rwBookStack.peek() // will return ("4D Games by Tutorials")

@@ -21,8 +21,6 @@ class MyCircularQueue {
      var readIndex = 0
      var writeIndex = 0
 
-
-
     init(_ k: Int) {
         array = Array(repeating: 0, count: k)
     }
@@ -40,12 +38,12 @@ class MyCircularQueue {
 
     func readElement() -> Int? {
         if !isEmpty() {
-        let element = array[readIndex % array.count]
+            let element = array[readIndex % array.count]
             readIndex += 1
             print("Queue after dequeu = \(array)")
             return element
         } else {
-        return nil
+            return nil
         }
     }
     
@@ -61,7 +59,7 @@ class MyCircularQueue {
          if isEmpty() {
              return -1
          } else {
-           return (readIndex > 0 && readIndex < array.count) ? array[readIndex] : array[(readIndex % array.count)]
+             return (readIndex > 0 && readIndex < array.count) ? array[readIndex] : array[(readIndex % array.count)]
          }
     }
     
@@ -96,3 +94,4 @@ print("isFull = \(obj.isFull())")
 print("dequeue Element = \(obj.deQueue())")
 obj.enQueue(4)
 print("Rear = \(obj.Rear())")
+print("Front = \(obj.Front())")

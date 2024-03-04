@@ -15,8 +15,6 @@ public class TrieNode<Key: Hashable> {
         self.key = key
         self.parent = parent
     }
-    
-    
 }
 
 
@@ -47,7 +45,7 @@ where CollectionType.Element: Hashable {
             }
             current = current.children[element]!
         }
-        if current.isTerminating{
+        if current.isTerminating {
             return
         }
         else {

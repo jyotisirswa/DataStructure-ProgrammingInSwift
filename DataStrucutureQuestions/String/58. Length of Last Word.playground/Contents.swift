@@ -7,8 +7,8 @@ func lengthOfLastWord(_ s: String) -> Int {
     // var lastWord = s.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: " ")
     // return lastWord.last?.count ?? 0
     var countOfLastWord = 0
-    for character in s.reversed() {
-        if character != " " {
+    for index in s.indices.reversed() {
+        if s[index] != " " {
             countOfLastWord += 1
         } else if countOfLastWord > 0 {
             return countOfLastWord

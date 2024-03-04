@@ -75,7 +75,6 @@ func reverseWordsApproachThree(_ s: String) -> String {
         print("index = \(index)")
         var endIndex = index + 1
         while endIndex < length && s[s.index(s.startIndex, offsetBy: endIndex)] != " " { endIndex += 1 }
-        print(s[s.index(s.startIndex, offsetBy: index)..<s.index(s.startIndex, offsetBy: endIndex)])
         let sub = String(s[s.index(s.startIndex, offsetBy: index)..<s.index(s.startIndex, offsetBy: endIndex)]) // characters[index..<endIndex])
         if result.isEmpty {
             result = sub

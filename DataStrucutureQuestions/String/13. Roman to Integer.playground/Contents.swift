@@ -20,6 +20,7 @@ func romanToInt(_ s: String) -> Int {
         else {
             integerNumber -= romanToInt[currentCharacter]!
         }
+        print("integer number for \(currentCharacter) is \(integerNumber)")
     }
     integerNumber += romanToInt[s.last!]!
     return integerNumber
@@ -32,7 +33,6 @@ func romanToIntApproachTwo(_ s: String) -> Int {
         "C": 100, "CD": 400, "D": 500, "CM": 900,
         "M": 1000
     ]
-    
     var total = 0
     var i = s.startIndex
     
@@ -55,9 +55,9 @@ func romanToIntApproachTwo(_ s: String) -> Int {
     return total
 }
 
-print("Roman to integer conversion of III is :- \(romanToInt("III"))")
-print("Roman to integer conversion of LVIII is :- \(romanToInt("LVIII"))")
+//print("Roman to integer conversion of III is :- \(romanToInt("III"))")
+//print("Roman to integer conversion of LVIII is :- \(romanToInt("LVIII"))")
 print("Roman to integer conversion of MCMXCIV is :- \(romanToInt("MCMXCIV"))")
-print("Roman to integer conversion of III is :- \(romanToIntApproachTwo("III"))")
-print("Roman to integer conversion of LVIII is :- \(romanToIntApproachTwo("LVIII"))")
-print("Roman to integer conversion of MCMXCIV is :- \(romanToIntApproachTwo("MCMXCIV"))")
+//print("Roman to integer conversion of III is :- \(romanToIntApproachTwo("III"))")
+//print("Roman to integer conversion of LVIII is :- \(romanToIntApproachTwo("LVIII"))")
+//print("Roman to integer conversion of MCMXCIV is :- \(romanToIntApproachTwo("MCMXCIV"))")

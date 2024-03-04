@@ -114,7 +114,6 @@ func printInReverse<T>(_ list: LinkedList<T>) -> LinkedList<T>? {
         stack.push(node.value)
         current = current?.next
     }
-    
     while let value = stack.pop() {
         reversedList.append(value)
     }
@@ -130,6 +129,26 @@ list.append(5)
 print("Linked list before reverse - \(list)")
 let reversedList = printInReverse(list)
 if let list = reversedList {
+    print("Linked list after reverse - \(list)")
+}
+
+func printInReverseApproach<T>(_ list: LinkedList<T>) -> LinkedList<T>? {
+    var head = list.head
+    var stack = Stack<T>()
+    var reversedList = LinkedList<T>()
+    
+    while let node = head {
+        stack.push(node.value)
+        head = head?.next
+    }
+    
+    while let value = stack.pop() {
+        reversedList.append(value)
+    }
+    return reversedList
+}
+let reversedListTwo = printInReverse(list)
+if let list = reversedListTwo {
     print("Linked list after reverse - \(list)")
 }
 

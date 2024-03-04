@@ -18,5 +18,29 @@ func removeDuplicates(_ nums: inout [Int]) -> Int {
     return currentIndex + 1
 }
 
+func removeDuplicatesApproachTwo(_ nums: inout [Int]) -> Int {
+    var j = 1
+    var count = 1
+    
+    for i in 1..<nums.count {
+        print("i in loop = \(i)")
+        if nums[i] == nums[i - 1] {
+            count += 1
+        } else {
+            count = 1
+        }
+        if count <= 2 {
+            print("j = \(j)")
+            print("i = \(i)")
+            nums[j] = nums[i]
+            print("nums[j]  = \(nums[j] )")
+            print("nums = \(nums)")
+            j += 1
+        }
+    }
+    
+    return j
+}
+
 var num1 = [1,1,1,2,2,3]
-print("Number of elements in array after removing third common element is \(removeDuplicates(&num1))")
+print("Number of elements in array after removing third common element is \(removeDuplicatesApproachTwo(&num1))")
